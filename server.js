@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3001;
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static('public'));
+app.use(express.static('public')); //allows us to use the css and js in the public folder for the front end
 
 // GET route for homepage index.html
 app.get('/', (req, res) =>
@@ -20,8 +20,7 @@ app.get('/', (req, res) =>
 app.get('/notes', (req, res) => {
     res.sendFile(path.join(__dirname, './public/notes.html'))
 })
-
-
+// this is to read from the db.json file
 app.get('/api/notes', (req, res) => {
     readFromFile('./db/db.json').then(function(data){
         const notes = JSON.parse(data);
@@ -29,7 +28,7 @@ app.get('/api/notes', (req, res) => {
             res.json(notes)
     })
 })
-
+//This allows us to create a new note and posts it to the db.json file
 app.post('/api/notes', (req, res) => {
     const note = {
         title:req.body.title,
@@ -37,7 +36,6 @@ app.post('/api/notes', (req, res) => {
     }
     readAndAppend(note,'./db/db.json')
 })
-
 
 
 
