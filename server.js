@@ -6,6 +6,9 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 // GET route for homepage index.html
 app.get('/', (req, res) =>
   res.sendFile(path.join(__dirname, './public/index.html'))
