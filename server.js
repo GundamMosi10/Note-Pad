@@ -2,7 +2,7 @@ const express = require('express'); //these are dependencies
 const fs = require('fs');
 const path = require('path');
 
-
+//server set up
 const app = express();
 const PORT = process.env.PORT || 3001;
 
