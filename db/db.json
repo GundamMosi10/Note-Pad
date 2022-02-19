@@ -4,9 +4,7 @@
         "text": "Test text"
     },
     {
-        "title": "The BIG Note"
-    },
-    {
-        "title": "Saved Note"
+        "title": "Note Taker",
+        "text": "Small note taker. "
     }
 ]

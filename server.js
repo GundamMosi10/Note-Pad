@@ -2,6 +2,8 @@ const express = require('express'); //these are dependencies
 const fs = require('fs');
 const path = require('path');
 const {readFromFile, writeToFile, readAndAppend} = require('./fsUtils');
+const uuid = require('uuid');
+
 
 //server set up
 const app = express();
