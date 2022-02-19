@@ -20,7 +20,12 @@ app.get('/', (req, res) =>
 app.get('/notes', (req, res) => {
     res.sendFile(path.join(__dirname, './public/notes.html'))
 })
-// this is to read from the db.json file
+//This gets notes saved and joins it to the db.json file
+app.get('/api/notes', (req, res) => {
+    res.sendFile(path.join(__dirname, 'db/db.json'))
+});
+
+// This is to read from the db.json file
 app.get('/api/notes', (req, res) => {
     readFromFile('./db/db.json').then(function(data){
         const notes = JSON.parse(data);
@@ -36,8 +41,6 @@ app.post('/api/notes', (req, res) => {
     }
     readAndAppend(note,'./db/db.json')
 })
-
-
 
 
 
