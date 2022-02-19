@@ -20,10 +20,7 @@ app.get('/', (req, res) =>
 app.get('/notes', (req, res) => {
     res.sendFile(path.join(__dirname, './public/notes.html'))
 })
-//This gets notes saved and joins it to the db.json file
-app.get('/api/notes', (req, res) => {
-    res.sendFile(path.join(__dirname, 'db/db.json'))
-});
+
 
 // This is to read from the db.json file
 app.get('/api/notes', (req, res) => {
@@ -41,8 +38,6 @@ app.post('/api/notes', (req, res) => {
     }
     readAndAppend(note,'./db/db.json')
 })
-
-
 
 
 
