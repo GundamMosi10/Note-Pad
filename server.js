@@ -34,7 +34,7 @@ app.get('/api/notes', (req, res) => {
 app.post('/api/notes', (req, res) => {
     const note = {
         title:req.body.title,
-        content:req.body.content
+        text:req.body.text
     }
     readAndAppend(note,'./db/db.json')
 })
