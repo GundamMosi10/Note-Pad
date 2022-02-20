@@ -20,6 +20,8 @@
   
   ## Usage:
   Here is a link to a [demo](https://sheltered-dusk-87449.herokuapp.com/) 
+  ![Screenshot](./img/Note-Taker-ScreenShot1.png "screen shot #1 of the note pad app the landing page")
+  ![Screenshot](./img/Note-Taker-ScreenShot2.png "screen shot #2 of the note pad app the action page")
   ## Installation:
    
   ## License:
