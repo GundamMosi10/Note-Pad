@@ -1,8 +1,7 @@
 const express = require('express'); //these are dependencies
 const fs = require('fs');
 const path = require('path');
-//const {readFromFile, writeToFile, readAndAppend} = require('./fsUtils');
-const {v4 : uuidv4} = require('uuid');
+const {v4 : uuidv4} = require('uuid'); //this allows us to make a unique id for each note that is created so we can specify which note if we want to delete or call up
 const notes = require('./db/db.json');
 
 
@@ -27,25 +26,6 @@ app.post('/api/notes', (req, res) => { //allows us to create new notes
     fs.writeFileSync('./db/db.json', JSON.stringify(notes)) //takes the json object and turns it into a string so we can read it
     res.json(notes);
 });
-
-
-// // This is to read from the db.json file
-// app.get('/api/notes', (req, res) => {
-//     readFromFile('./db/db.json').then(function(data){
-//         const notes = JSON.parse(data);
-//             console.log(notes);
-//             res.json(notes)
-//     })
-// })
-
-// //This allows us to create a new note and posts it to the db.json file
-// app.post('/api/notes', (req, res) => {
-//     const note = {
-//         title:req.body.title,
-//         text:req.body.text
-//     }
-//     readAndAppend(note,'./db/db.json')
-// })
 
 
 // GET route for homepage index.html
