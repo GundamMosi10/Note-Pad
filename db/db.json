@@ -2,17 +2,5 @@
     {
         "title": "Test Title",
         "text": "Test text"
-    },
-    {
-        "title": "Note Taker",
-        "text": "Small note taker. "
-    },
-    {
-        "title": "The Note",
-        "text": "Small note "
-    },
-    {
-        "title": "Npm start ",
-        "text": "to start the application "
     }
 ]

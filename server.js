@@ -1,8 +1,9 @@
 const express = require('express'); //these are dependencies
 const fs = require('fs');
 const path = require('path');
-const {readFromFile, writeToFile, readAndAppend} = require('./fsUtils');
+//const {readFromFile, writeToFile, readAndAppend} = require('./fsUtils');
 const {v4 : uuidv4} = require('uuid');
+const notes = require('./db/db.json');
 
 
 //server set up
@@ -13,17 +14,17 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public')); //allows us to use the css and js in the public folder for the front end
 
-//
+
 app.get('/api/notes', (req, res) => {
-    res.sendFile(path.join(__dirname, '/db/db.json')); //this should get the notes that are in the json db
+    res.sendFile(path.join(__dirname, './db/db.json')); //this should get the notes that are in the json db
 })
 
 app.post('/api/notes', (req, res) => { //allows us to create new notes 
-    const notes = JSON.parse(fs.readFromFile('/db/db.json')); //parsing this json file turns the information into an object for us to read the file
+    const notes = JSON.parse(fs.readFileSync('./db/db.json')); //parsing this json file turns the information into an object for us to read the file
     const newNotes = req.body; 
     newNotes.id = uuidv4(); //gives each new note a unique id so that we can specifically target it when we want
     notes.push(newNotes); 
-    fs.writeToFile('./db/db.json', JSON.stringify(notes)) //takes the json object and turns it into a string so we can read it
+    fs.writeFileSync('./db/db.json', JSON.stringify(notes)) //takes the json object and turns it into a string so we can read it
     res.json(notes);
 });
 
